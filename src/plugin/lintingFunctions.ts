@@ -76,7 +76,7 @@ export function checkRadius(node, errors, radiusValues) {
         createErrorObject(
           node,
           "radius",
-          "Incorrect top right radius",
+          "Incorrect Top Right Radius",
           node.topRightRadius
         )
       );
@@ -85,7 +85,7 @@ export function checkRadius(node, errors, radiusValues) {
         createErrorObject(
           node,
           "radius",
-          "Incorrect bottom left radius",
+          "Incorrect Bottom Left Radius",
           node.bottomLeftRadius
         )
       );
@@ -94,7 +94,7 @@ export function checkRadius(node, errors, radiusValues) {
         createErrorObject(
           node,
           "radius",
-          "Incorrect bottom right radius",
+          "Incorrect Bottom Right Radius",
           node.bottomRightRadius
         )
       );
@@ -107,7 +107,7 @@ export function checkRadius(node, errors, radiusValues) {
         createErrorObject(
           node,
           "radius",
-          "Incorrect border radius",
+          "Incorrect Border Radius",
           node.cornerRadius
         )
       );
@@ -220,7 +220,7 @@ export function checkEffects(node, errors) {
         createErrorObject(
           node,
           "effects",
-          "Missing effects style",
+          "Missing Effects Style",
           currentStyle
         )
       );
@@ -242,7 +242,7 @@ export function checkFills(node, errors) {
         createErrorObject(
           node,
           "fill",
-          "Missing fill style",
+          "Missing Fill Style",
           determineFill(node.fills)
         )
       );
@@ -268,7 +268,7 @@ export function checkStrokes(node, errors) {
       let currentStyle = `${strokeObject.strokeFills} / ${strokeObject.strokeWeight} / ${strokeObject.strokeAlign}`;
 
       return errors.push(
-        createErrorObject(node, "stroke", "Missing stroke style", currentStyle)
+        createErrorObject(node, "stroke", "Missing Stroke Style", currentStyle)
       );
     } else {
       return;
@@ -299,7 +299,7 @@ export function checkType(node, errors) {
     let currentStyle = `${textObject.font} ${textObject.fontStyle} / ${textObject.fontSize} (${textObject.lineHeight} line-height)`;
 
     return errors.push(
-      createErrorObject(node, "text", "Missing text style", currentStyle)
+      createErrorObject(node, "text", "Missing Text Style", currentStyle)
     );
   } else {
     return;

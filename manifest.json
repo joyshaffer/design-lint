@@ -1,6 +1,6 @@
 {
-  "name": "Design Lint",
-  "id": "801195587640428208",
+  "name": "Spark Lint",
+  "id": "987008243581106237",
   "api": "1.0.0",
   "main": "dist/code.js",
   "ui": "dist/ui.html"

@@ -61,10 +61,12 @@ button:focus {
 /* Plugin specific styles */
 
 body {
-  font: 11px sans-serif;
+  font: 12px sans-serif;
   font-family: system-ui;
   margin: 0;
   overflow: hidden;
+  background: #f8f8f8;
+  color: #203b73;
 }
 
 #create {
@@ -97,7 +99,7 @@ body {
 }
 
 .nav-item.active {
-  color: #333333;
+  color: #203b73;
 }
 
 .bulk-errors-list {
@@ -176,7 +178,7 @@ body {
   position: absolute;
   top: 6px;
   right: 16px;
-  background: #fe6262;
+  background: #ff4f1f;
   color: #fff;
   height: 16px;
   min-width: 16px;
@@ -195,7 +197,7 @@ body {
 .dot {
   position: absolute;
   right: 21px;
-  background: #fe6262;
+  background: #ff4f1f;
   height: 6px;
   width: 6px;
   border-radius: 50%;
@@ -203,7 +205,7 @@ body {
 }
 
 .list-flex-row:hover {
-  border-color: #18a0fb;
+  border-color: #2a60c8;
 }
 
 .list-flex-row:hover .list-arrow-icon {

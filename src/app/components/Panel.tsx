@@ -161,7 +161,7 @@ function Panel(props) {
           <div className="panel-body">
             {errors.length ? (
               <React.Fragment>
-                <div className="error-label">Errors — {errors.length}</div>
+                <div className="error-label">Errors: {errors.length}</div>
                 <ErrorList
                   onIgnoredUpdate={handleIgnoreChange}
                   onIgnoreAll={handleIgnoreAll}

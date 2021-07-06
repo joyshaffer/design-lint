@@ -1,6 +1,8 @@
 import * as React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Menu from "./Menu";
+import colorCodes from "../colors";
+import _ from "lodash";
 
 function ErrorList(props) {
   const handleIgnoreClick = error => {
@@ -37,6 +39,36 @@ function ErrorList(props) {
     enter: { opacity: 1, y: 0, scale: 1 },
     exit: { opacity: 0, y: -10, scale: 0.8 }
   };
+
+  function displaySuggestedFix(error) {
+    const _ = require("lodash");
+
+    if (error.type === "fill") {
+      const fillErrorValue = error.value.toUpperCase();
+      if (fillErrorValue) {
+        const foundTokenValue = _.find(colorCodes, error.value.toUpperCase());
+        if (foundTokenValue) {
+          const tokenValue = foundTokenValue[fillErrorValue];
+          return `Change to ${tokenValue}`;
+        }
+      }
+    }
+
+    if (error.type === "stroke") {
+      const strokeErrorValue = error.value.slice(0, 7).toUpperCase();
+      if (strokeErrorValue) {
+        const foundTokenValue = _.find(colorCodes, strokeErrorValue);
+        if (foundTokenValue) {
+          const tokenValue = foundTokenValue[strokeErrorValue];
+          return `Change to ${tokenValue}`;
+        }
+      }
+    }
+  }
+
+  function onSuggestionAccepted() {
+    console.log("Change Accepted");
+  }
 
   const errorListItems = props.errors.map((error, index) => (
     <motion.li
@@ -95,6 +127,18 @@ function ErrorList(props) {
       </div>
 
       {error.value ? <div className="current-value">{error.value}</div> : null}
+
+      <div className="panel-suggested-fix">
+        <span className="suggested-heading">Suggested Fix:</span>
+        <div className="suggested-body">
+          <div>{displaySuggestedFix(error)}</div>
+          <div className="button-container">
+            <button onClick={onSuggestionAccepted} className="accept-change">
+              Accept Change
+            </button>
+          </div>
+        </div>
+      </div>
     </motion.li>
   ));
 

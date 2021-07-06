@@ -3,9 +3,8 @@ import {
   checkEffects,
   checkFills,
   checkStrokes,
-  checkType,
-  customCheckTextFills
-  // customCheckTextFills,
+  checkType
+  // customCheckTextFills
 } from "./lintingFunctions";
 
 figma.showUI(__html__, { width: 360, height: 580 });

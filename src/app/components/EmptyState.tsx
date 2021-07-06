@@ -30,7 +30,7 @@ function EmptyState(props) {
         className="button button--primary button--full"
         onClick={onRunApp}
       >
-        Run Design Lint
+        Run Spark Lint
       </button>
     </motion.div>
   );
