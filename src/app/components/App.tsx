@@ -2,7 +2,6 @@ import * as React from "react";
 import { useState } from "react";
 import { AnimatePresence } from "../../../node_modules/framer-motion";
 
-import Navigation from "./Navigation";
 import NodeList from "./NodeList";
 import Preloader from "./Preloader";
 import EmptyState from "./EmptyState";
@@ -15,7 +14,7 @@ import "../styles/empty-state.css";
 
 const App = ({}) => {
   const [errorArray, setErrorArray] = useState([]);
-  const [activePage, setActivePage] = useState("layers");
+  const [activePage] = useState("layers");
   const [ignoredErrorArray, setIgnoreErrorArray] = useState([]);
   const [activeError, setActiveError] = React.useState({});
   const [selectedNode, setSelectedNode] = React.useState({});
@@ -58,10 +57,6 @@ const App = ({}) => {
       // Since the ID is not already in the list, we want to add it
       return activeNodeIds.concat(id);
     });
-  };
-
-  const updateNavigation = page => {
-    setActivePage(page);
   };
 
   const updateActiveError = error => {
@@ -235,10 +230,6 @@ const App = ({}) => {
   return (
     <div className="container">
       <AnimatePresence>
-        <Navigation
-          onPageSelection={updateNavigation}
-          activePage={activePage}
-        />
         {activeNodeIds.length !== 0 ? (
           <div>
             {activePage === "layers" ? (
