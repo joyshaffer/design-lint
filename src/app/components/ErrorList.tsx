@@ -2,6 +2,8 @@ import * as React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Menu from "./Menu";
 import colorCodes from "../colors";
+import typography from "../typography";
+import effects from "../effects";
 import _ from "lodash";
 
 function ErrorList(props) {
@@ -40,29 +42,55 @@ function ErrorList(props) {
     exit: { opacity: 0, y: -10, scale: 0.8 }
   };
 
+  let showAcceptChangeButton = null;
+
   function displaySuggestedFix(error) {
     const _ = require("lodash");
 
-    if (error.type === "fill") {
-      const fillErrorValue = error.value.toUpperCase();
-      if (fillErrorValue) {
-        const foundTokenValue = _.find(colorCodes, error.value.toUpperCase());
-        if (foundTokenValue) {
-          const tokenValue = foundTokenValue[fillErrorValue];
-          return `Change to ${tokenValue}`;
+    let errorValue = "";
+    let foundTokenValue = "";
+    let type = "";
+
+    switch (error.type) {
+      case "fill":
+        type = "fill";
+        errorValue = error.value.toUpperCase();
+        if (errorValue) {
+          foundTokenValue = _.find(colorCodes, errorValue);
         }
-      }
+        break;
+      case "stroke":
+        type = "stroke";
+        errorValue = error.value.slice(0, 7).toUpperCase();
+        if (errorValue) {
+          foundTokenValue = _.find(colorCodes, errorValue);
+        }
+        break;
+      case "effects":
+        type = "effects";
+        errorValue = error.value;
+        if (errorValue) {
+          foundTokenValue = _.find(effects, errorValue);
+        }
+        break;
+      case "text":
+        type = "text";
+        errorValue = error.value;
+        if (errorValue) {
+          foundTokenValue = _.find(typography, errorValue);
+        }
+        break;
+      default:
+        foundTokenValue = undefined;
     }
 
-    if (error.type === "stroke") {
-      const strokeErrorValue = error.value.slice(0, 7).toUpperCase();
-      if (strokeErrorValue) {
-        const foundTokenValue = _.find(colorCodes, strokeErrorValue);
-        if (foundTokenValue) {
-          const tokenValue = foundTokenValue[strokeErrorValue];
-          return `Change to ${tokenValue}`;
-        }
-      }
+    if (foundTokenValue) {
+      showAcceptChangeButton = true;
+      const tokenValue = foundTokenValue[errorValue];
+      return `Change ${type} style to ${tokenValue}`;
+    } else {
+      showAcceptChangeButton = false;
+      return `No suggested fix`;
     }
   }
 
@@ -133,9 +161,11 @@ function ErrorList(props) {
         <div className="suggested-body">
           <div>{displaySuggestedFix(error)}</div>
           <div className="button-container">
-            <button onClick={onSuggestionAccepted} className="accept-change">
-              Accept Change
-            </button>
+            {showAcceptChangeButton ? (
+              <button onClick={onSuggestionAccepted} className="accept-change">
+                Accept Change
+              </button>
+            ) : null}
           </div>
         </div>
       </div>
