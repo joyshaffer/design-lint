@@ -87,10 +87,10 @@ function ErrorList(props) {
     if (foundTokenValue) {
       // showAcceptChangeButton = true;
       const tokenValue = foundTokenValue[errorValue];
-      return `Change ${type} style to ${tokenValue}`;
+      return `Change ${type} style to ${tokenValue}. Go to the right hand panel to make this adjustment.`;
     } else {
       // showAcceptChangeButton = false;
-      return `No suggested fix`;
+      return `The current ${type} style does not align with Spark. Please review the Spark Design System color palette.`;
     }
   }
 
