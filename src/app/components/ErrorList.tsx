@@ -42,7 +42,7 @@ function ErrorList(props) {
     exit: { opacity: 0, y: -10, scale: 0.8 }
   };
 
-  let showAcceptChangeButton = null;
+  // let showAcceptChangeButton = null;
 
   function displaySuggestedFix(error) {
     const _ = require("lodash");
@@ -85,18 +85,18 @@ function ErrorList(props) {
     }
 
     if (foundTokenValue) {
-      showAcceptChangeButton = true;
+      // showAcceptChangeButton = true;
       const tokenValue = foundTokenValue[errorValue];
       return `Change ${type} style to ${tokenValue}`;
     } else {
-      showAcceptChangeButton = false;
+      // showAcceptChangeButton = false;
       return `No suggested fix`;
     }
   }
 
-  function onSuggestionAccepted() {
-    console.log("Change Accepted");
-  }
+  // function onSuggestionAccepted() {
+  //   console.log("Change Accepted");
+  // }
 
   const errorListItems = props.errors.map((error, index) => (
     <motion.li
@@ -160,13 +160,13 @@ function ErrorList(props) {
         <span className="suggested-heading">Suggested Fix:</span>
         <div className="suggested-body">
           <div>{displaySuggestedFix(error)}</div>
-          <div className="button-container">
+          {/* <div className="button-container">
             {showAcceptChangeButton ? (
               <button onClick={onSuggestionAccepted} className="accept-change">
                 Accept Change
               </button>
             ) : null}
-          </div>
+          </div> */}
         </div>
       </div>
     </motion.li>

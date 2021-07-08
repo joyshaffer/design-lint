@@ -239,7 +239,7 @@ figma.ui.onmessage = msg => {
         errors: lint(nodes)
       });
 
-      figma.notify(`Design lint is running and will auto refresh for changes`, {
+      figma.notify(`Spark lint is running and will auto refresh for changes`, {
         timeout: 2000
       });
 

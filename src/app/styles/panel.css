@@ -28,7 +28,7 @@
   flex: 1;
   font-weight: 600;
   font-size: 14px;
-  color: #203b73;
+  color: #33383d;
   display: flex;
   align-items: center;
   -webkit-line-clamp: 2;
@@ -49,10 +49,13 @@
 .suggested-heading {
   font-size: 14px;
   font-weight: bold;
+  color: #3c8527;
 }
 
 .suggested-body {
   font-size: 12px;
+  font-weight: 400;
+  color: #3c8527;
 }
 
 .button-container {
@@ -131,7 +134,7 @@
 .error-list-item {
   padding: 12px 16px 16px;
   border: 1px solid #aeb9c6;
-  color: #203b73;
+  color: #33383d;
   margin-bottom: 8px;
   border-radius: 8px;
   display: flex;
@@ -159,7 +162,7 @@
   margin-top: 4px;
   width: 100%;
   color: #333;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
 }
 
@@ -170,6 +173,8 @@
 
 .error-description {
   align-self: center;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .error-type img {

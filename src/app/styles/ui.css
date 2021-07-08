@@ -66,7 +66,7 @@ body {
   margin: 0;
   overflow: hidden;
   background: #f8f8f8;
-  color: #203b73;
+  color: #33383d;
 }
 
 #create {
@@ -99,7 +99,7 @@ body {
 }
 
 .nav-item.active {
-  color: #203b73;
+  color: #33383d;
 }
 
 .bulk-errors-list {
@@ -144,14 +144,6 @@ body {
 
 .list-item ul {
   display: none;
-}
-
-.list-item--selected > .list-flex-row {
-  background: #daebf7;
-}
-
-.list-item--selected ul {
-  background: #edf5fa;
 }
 
 .list-item--active > ul {
@@ -206,6 +198,7 @@ body {
 
 .list-flex-row:hover {
   border-color: #2a60c8;
+  border-radius: 4px;
 }
 
 .list-flex-row:hover .list-arrow-icon {
