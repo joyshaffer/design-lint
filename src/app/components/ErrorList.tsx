@@ -90,7 +90,7 @@ function ErrorList(props) {
       return `Change ${type} style to ${tokenValue}. Go to the right hand panel to make this adjustment.`;
     } else {
       // showAcceptChangeButton = false;
-      return `The current ${type} style does not align with Spark. Please review the Spark Design System color palette.`;
+      return `The current ${type} style does not align with Spark. Please review the Spark Design Kit.`;
     }
   }
 
